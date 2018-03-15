@@ -71,7 +71,7 @@ function initDynamicSolver(globals){
         render();
     }
 
-    var benchmarks = [];
+    window.benchmarks = [];
 
     function solve(_numSteps){
 
@@ -100,6 +100,7 @@ function initDynamicSolver(globals){
         }
         if (globals.materialHasChanged) {
             updateMaterials();
+            window.benchmarks = [];
             globals.materialHasChanged = false;
         }
         if (globals.shouldChangeCreasePercent) {
@@ -130,11 +131,9 @@ function initDynamicSolver(globals){
         }
         if (globals.gpuMath.readyToRead()) {
             var t1 = performance.now();
-            benchmarks.push((t1 - t0));
-            if (benchmarks.length == 30){
-                console.log(JSON.stringify(benchmarks));
-                benchmarks = [];
-            }
+            window.benchmarks.push((t1 - t0));
+            console.log(JSON.stringify(benchmarks));
+            if (window.benchmarks.length==30 ) window.benchmarks = [];
         } else {
             console.log("here");
         }

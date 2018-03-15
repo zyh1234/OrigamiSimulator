@@ -486,19 +486,19 @@ function initPattern(globals){
         }
 
         foldData = FOLD.filter.collapseNearbyVertices(foldData, globals.vertTol);
-        foldData = FOLD.filter.removeLoopEdges(foldData);//remove edges that points to same vertex
-        foldData = FOLD.filter.removeDuplicateEdges_vertices(foldData);//remove duplicate edges
+        // foldData = FOLD.filter.removeLoopEdges(foldData);//remove edges that points to same vertex
+        // foldData = FOLD.filter.removeDuplicateEdges_vertices(foldData);//remove duplicate edges
         // foldData = FOLD.filter.subdivideCrossingEdges_vertices(foldData, globals.vertTol);//find intersections and add vertices/edges
 
-        foldData = findIntersections(foldData, globals.vertTol);
+        // foldData = findIntersections(foldData, globals.vertTol);
         //cleanup after intersection operation
-        foldData = FOLD.filter.collapseNearbyVertices(foldData, globals.vertTol);
-        foldData = FOLD.filter.removeLoopEdges(foldData);//remove edges that points to same vertex
-        foldData = FOLD.filter.removeDuplicateEdges_vertices(foldData);//remove duplicate edges
+        // foldData = FOLD.filter.collapseNearbyVertices(foldData, globals.vertTol);
+        // foldData = FOLD.filter.removeLoopEdges(foldData);//remove edges that points to same vertex
+        // foldData = FOLD.filter.removeDuplicateEdges_vertices(foldData);//remove duplicate edges
 
         foldData = FOLD.convert.edges_vertices_to_vertices_vertices_unsorted(foldData);
         foldData = removeStrayVertices(foldData);//delete stray anchors
-        foldData = removeRedundantVertices(foldData, 0.01);//remove vertices that split edge
+        // foldData = removeRedundantVertices(foldData, 0.01);//remove vertices that split edge
 
         foldData.vertices_vertices = FOLD.convert.sort_vertices_vertices(foldData);
         foldData = FOLD.convert.vertices_vertices_to_faces_vertices(foldData);
