@@ -170,7 +170,7 @@ function initModel(globals){
 
     function step(numSteps){
         getSolver().solve(numSteps);
-        setGeoUpdates();
+        // setGeoUpdates();
     }
 
     function setGeoUpdates(){

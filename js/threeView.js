@@ -140,12 +140,12 @@ function initThreeView(globals) {
             globals.model.syncSolver();
         }
         if (globals.simulationRunning) globals.model.step();
-        if (globals.vrEnabled){
-            _render();
-            return;
-        }
-        controls.update();
-        _render();
+        // if (globals.vrEnabled){
+        //     _render();
+        //     return;
+        // }
+        // controls.update();
+        // _render();
     }
 
     function sceneAddModel(object){

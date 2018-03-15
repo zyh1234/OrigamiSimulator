@@ -71,6 +71,8 @@ function initDynamicSolver(globals){
         render();
     }
 
+    var benchmarks = [];
+
     function solve(_numSteps){
 
         if (globals.shouldAnimateFoldPercent){
@@ -122,10 +124,23 @@ function initDynamicSolver(globals){
         }
 
         if (_numSteps === undefined) _numSteps = globals.numSteps;
+        var t0 = performance.now();
         for (var j=0;j<_numSteps;j++){
             solveStep();
         }
-        render();
+        if (globals.gpuMath.readyToRead()) {
+            var t1 = performance.now();
+            benchmarks.push((t1 - t0));
+            if (benchmarks.length == 30){
+                console.log(JSON.stringify(benchmarks));
+                benchmarks = [];
+            }
+        } else {
+            console.log("here");
+        }
+
+        // render();
+
     }
 
     function solveStep(){
