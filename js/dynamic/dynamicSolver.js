@@ -132,8 +132,11 @@ function initDynamicSolver(globals){
         if (globals.gpuMath.readyToRead()) {
             var t1 = performance.now();
             window.benchmarks.push((t1 - t0));
-            console.log(JSON.stringify(benchmarks));
-            if (window.benchmarks.length==30 ) window.benchmarks = [];
+            // console.log(JSON.stringify(benchmarks));
+            if (window.benchmarks.length==30 ) {
+                console.log(JSON.stringify(window.benchmarks));
+                window.benchmarks = [];
+            }
         } else {
             console.log("here");
         }
