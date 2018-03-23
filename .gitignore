@@ -3,3 +3,5 @@ assets/attrib.txt
 todo.rtf
 CreasePatternScripts/*.svg
 CreasePatternScripts/*.pdf
+CreasePatternScripts/**/*.pdf
+CreasePatternScripts/**/*.svg
